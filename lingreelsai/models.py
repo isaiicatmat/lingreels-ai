@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Text, Boolean, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-from datetime import datetime
+from datetime import datetime, timezone
 
 Base = declarative_base()
 
@@ -12,8 +12,8 @@ class User(Base):
     email = Column(String(255), unique=True, nullable=False)
     hashed_password = Column(String(255), nullable=False)  # Only if using local auth
     role = Column(String(50), default='user')
-    created_at = Column(DateTime, default=datetime.now(datetime.timezone.utc))
-    updated_at = Column(DateTime, default=datetime.now(datetime.timezone.utc), onupdate=datetime.now(datetime.timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
 class Video(Base):
     __tablename__ = 'videos'
@@ -24,10 +24,10 @@ class Video(Base):
     description = Column(Text)
     video_url = Column(String(255), nullable=False)
     video_length = Column(Integer)
-    uploaded_at = Column(DateTime, default=datetime.utcnow)
+    uploaded_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     processed = Column(Boolean, default=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
     user = relationship("User")
 

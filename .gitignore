@@ -1,17 +1,26 @@
+# Python & Virtual Environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+*.sqlite
+
+# Alembic
+alembic/env.py  # This file contains database connection details
+
 .idea
 .ipynb_checkpoints
 .mypy_cache
 .vscode
-__pycache__
 .pytest_cache
 htmlcov
 dist
 site
 env3.*
-env
 docs_build
 site_build
-venv
 docs.zip
 archive.zip
 
@@ -22,3 +31,7 @@ archive.zip
 
 # macOS
 .DS_Store
+
+# Secrets
+config.ini
+secrets.json
