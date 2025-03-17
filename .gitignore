@@ -9,6 +9,7 @@ venv/
 
 # Alembic
 alembic/env.py  # This file contains database connection details
+alembic.ini
 
 .idea
 .ipynb_checkpoints
