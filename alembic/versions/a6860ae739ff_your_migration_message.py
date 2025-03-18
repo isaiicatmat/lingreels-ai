@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 from sqlalchemy.dialects.postgresql import ENUM
-from lingreelsai.models import ClipLengthEnum 
+from lingreelsai.models.models import ClipLengthEnum 
 
 # revision identifiers, used by Alembic.
 revision: str = 'a6860ae739ff'

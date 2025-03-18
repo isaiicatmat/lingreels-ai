@@ -31,7 +31,7 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-from lingreelsai.models import Base
+from lingreelsai.models.models import Base
 target_metadata = Base.metadata
 # target_metadata = None
 

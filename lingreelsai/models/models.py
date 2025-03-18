@@ -45,8 +45,8 @@ class Clip(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     video_id = Column(Integer, ForeignKey('videos.id'))
-    start_time = Column(Integer)  # Start time in seconds
-    end_time = Column(Integer)    # End time in seconds
+    start_time = Column(Float)  # Start time in seconds
+    end_time = Column(Float)    # End time in seconds
     clip_url = Column(String(255))
     title = Column(String, nullable=True)
     description = Column(String, nullable=True)
